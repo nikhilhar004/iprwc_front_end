@@ -1,1 +1,12 @@
 /* You can add global styles to this file, and also import other style files */
+app-root{
+  min-height: 100vh;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+app-footer {
+  text-align: center;
+  bottom: 0;
+}

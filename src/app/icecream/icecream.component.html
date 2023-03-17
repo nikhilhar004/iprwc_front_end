@@ -1,0 +1,19 @@
+<div class="container">
+  <div class="row">
+    <input type="text" [(ngModel)]="filterProducts">
+  </div>
+  <div class="row g-3">
+    <div class="col-md-4 col-md-4 col-md-4" *ngFor="let icecream of icecreams | filter: filterProducts:'name'">
+      <h1>{{icecream.name}}</h1>
+      <img [src]=icecream.imageURL [alt]="icecream.name" style="max-height: 100px; min-height: 100px; width: auto">
+      <p>{{icecream.description}}</p>
+      <p style="text-align: center">€{{icecream.price}},-</p>
+      <div *ngIf="!addingToCart">
+        <button class="btn btn-success" (click)="addToCart(icecream)">Add to Cart</button>
+      </div>
+      <div *ngIf="addingToCart">
+        <button class="btn btn-secondary disabled">Add to Cart</button>
+      </div>
+    </div>
+  </div>
+</div>

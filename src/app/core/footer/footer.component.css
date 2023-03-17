@@ -1,0 +1,13 @@
+footer {
+  background-color: DarkSalmon;
+  color: white;
+  min-height: 50px;
+  display: flex;
+  position: fixed;
+  width: 100%;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  justify-content: center;
+  align-items: center;
+}
