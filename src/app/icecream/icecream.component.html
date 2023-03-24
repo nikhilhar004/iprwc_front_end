@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container p-3">
   <div class="row">
     <div class="input-group mb-3">
       <span class="input-group-text">Search</span>
@@ -12,7 +12,7 @@
         <div class="card-body">
           <h3 class="card-title">{{icecream.name}}</h3>
           <p class="card-text" >{{icecream.description}}</p>
-          <p style="text-align: center">€{{icecream.price}}</p>
+          <p style="text-align: center">€ {{icecream.price}}</p>
           <div *ngIf="!addingToCart">
             <button class="btn btn-success" (click)="addToCart(icecream)">Add to Cart</button>
           </div>

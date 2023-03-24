@@ -1,0 +1,38 @@
+<div class="container p-3">
+  <div class="row">
+    <form (ngSubmit)="onSubmitLogin()" #formLogin="ngForm" *ngIf="!registratieMode">
+      <div class="input-group mb-3">
+        <input type="text" name="email" class="form-control" placeholder="E-mail" [ngModel]="email.value" email required #email="ngModel">
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" name="password" class="form-control" placeholder="Password" [ngModel]="password.value" required #password="ngModel">
+      </div>
+
+      <button class="btn btn-primary" type="button" (click)="changeLoginState()">REGISTER</button>
+      <span></span>
+      <button class="btn btn-success ms-3" [disabled]="!formLogin.valid" >LOGIN</button>
+
+    </form>
+  </div>
+  <div class="row">
+    <form (ngSubmit)="onSubmitRegister()" #formRegister="ngForm" *ngIf="registratieMode">
+      <div class="input-group mb-3">
+        <input type="text" name="email" class="form-control" placeholder="E-mail" [ngModel]="email.value" email required #email="ngModel">
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" name="name" class="form-control" placeholder="username" [ngModel]="name.value" required #name="ngModel">
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" name="password1" class="form-control" placeholder="Password" [ngModel]="password1.value" required #password1="ngModel">
+      </div>
+      <div class="input-group mb-3">
+        <input type="text" name="password2" class="form-control" placeholder="Re-enter Password" [ngModel]="password2.value" required #password2="ngModel">
+      </div>
+
+      <button class="btn btn-primary" type="button" (click)="changeLoginState()">LOGIN</button>
+      <span></span>
+      <button class="btn btn-success ms-3" [disabled]="!formRegister.valid">CREATE</button>
+    </form>
+  </div>
+</div>
+

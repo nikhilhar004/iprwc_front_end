@@ -30,6 +30,7 @@ import {HttpClientModule} from "@angular/common/http";
         RouterOutlet,
         RouterLink,
         AppRoutingModule,
+        HttpClientModule,
         BrowserAnimationsModule,
         MatGridListModule,
         FormsModule

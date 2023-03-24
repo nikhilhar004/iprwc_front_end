@@ -1,5 +1,4 @@
 import {Component, OnInit} from '@angular/core';
-import {Icecream} from "../model/icecream.model";
 import {IcecreamService} from "../services/icecream.service";
 import {ShoppingcartModel} from "../model/shoppingcart.model";
 import {dexieService} from "../services/dexie.service";
@@ -12,6 +11,7 @@ import {dexieService} from "../services/dexie.service";
 export class ShoppingcartComponent implements OnInit {
 
   icecreamProducts: ShoppingcartModel[] = [];
+  completePrice: number = 0;
 
   constructor(private icecreamService: IcecreamService) {
   }
@@ -19,6 +19,12 @@ export class ShoppingcartComponent implements OnInit {
   ngOnInit() {
     this.icecreamService.getCustomerItems().then((icecreamList) => {
       this.icecreamProducts = icecreamList
+      if (this.icecreamProducts.length > 0) {
+        for (let icecream of this.icecreamProducts) {
+          console.log(icecream.price * icecream.amount)
+          this.completePrice = this.completePrice + (icecream.price * icecream.amount)
+        }
+      }
     });
   }
 
