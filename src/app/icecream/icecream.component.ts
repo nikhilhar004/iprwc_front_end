@@ -1,8 +1,9 @@
 import {Component, OnInit} from '@angular/core';
-import {Icecream} from "./icecream.model";
+import {Icecream} from "../model/icecream.model";
 import {IcecreamService} from "../services/icecream.service";
 import {dexieService, DexieService} from "../services/dexie.service";
-import {ShoppingcartModel} from "../shoppingcart/shoppingcart.model";
+import {ShoppingcartModel} from "../model/shoppingcart.model";
+import {HttpService} from "../services/http.service";
 
 @Component({
   selector: 'app-icecream',
@@ -16,12 +17,22 @@ export class IcecreamComponent implements OnInit{
 
   addingToCart = false;
 
-  constructor(private icecreamService: IcecreamService) {
+  constructor(private icecreamService: IcecreamService, private httpService: HttpService) {
   }
   ngOnInit() {
-    this.icecreamService.getIcecream().then((icecreamList) => {
-      this.icecreams = icecreamList
-    });
+    // this.icecreamService.getIcecream().then((icecreamList) => {
+    //   this.icecreams = icecreamList
+    // });
+
+    this.getIcecream()
+  }
+
+  getIcecream() {
+    return this.httpService.getData<Icecream>("/icecream").subscribe(
+      (icecreamList) => {
+        this.icecreams = icecreamList
+      }
+    );
   }
 
   addToCart(icecream: Icecream) {

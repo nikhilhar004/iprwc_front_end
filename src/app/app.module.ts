@@ -11,13 +11,18 @@ import {MatGridListModule} from "@angular/material/grid-list";
 import { ShoppingcartComponent } from './shoppingcart/shoppingcart.component';
 import {FormsModule} from "@angular/forms";
 import { FilterPipe } from './icecream/filter.pipe';
+import { LoginComponent } from './login/login.component';
+import { AddIcecreamComponent } from './admin/add-icecream/add-icecream.component';
+import {HttpClientModule} from "@angular/common/http";
 
 @NgModule({
   declarations: [
     AppComponent,
     IcecreamComponent,
     ShoppingcartComponent,
-    FilterPipe
+    FilterPipe,
+    LoginComponent,
+    AddIcecreamComponent
   ],
     imports: [
         BrowserModule,

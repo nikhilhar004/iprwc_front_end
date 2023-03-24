@@ -1,7 +1,7 @@
 import {Component, OnInit} from '@angular/core';
-import {Icecream} from "../icecream/icecream.model";
+import {Icecream} from "../model/icecream.model";
 import {IcecreamService} from "../services/icecream.service";
-import {ShoppingcartModel} from "./shoppingcart.model";
+import {ShoppingcartModel} from "../model/shoppingcart.model";
 import {dexieService} from "../services/dexie.service";
 
 @Component({
@@ -28,7 +28,6 @@ export class ShoppingcartComponent implements OnInit {
     if (currentSelectedItemInCart != undefined && currentSelectedItemInCart.id != null) {
       await dexieService.icecreamShoppingCart.delete(currentSelectedItemInCart.id);
       this.icecreamProducts = await dexieService.icecreamShoppingCart.toArray();
-      //TODO 2:Maak gebruik van dynamisch laden uit de Angular kit zelf, zonder 'location.reload' te gebruiken
     }
   }
 

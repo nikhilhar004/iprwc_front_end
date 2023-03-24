@@ -1,6 +1,6 @@
 import Dexie from "dexie";
-import {Icecream} from "../icecream/icecream.model";
-import {ShoppingcartModel} from "../shoppingcart/shoppingcart.model";
+import {Icecream} from "../model/icecream.model";
+import {ShoppingcartModel} from "../model/shoppingcart.model";
 
 export class DexieService extends Dexie{
 

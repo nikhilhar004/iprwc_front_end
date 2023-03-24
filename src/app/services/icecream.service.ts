@@ -1,20 +1,20 @@
 import { Injectable } from '@angular/core';
-import {Icecream} from "../icecream/icecream.model";
+import {Icecream} from "../model/icecream.model";
 import {Subject} from "rxjs";
 import {DexieService} from "./dexie.service";
 import {dexieService} from "./dexie.service";
-import {ShoppingcartModel} from "../shoppingcart/shoppingcart.model";
+import {ShoppingcartModel} from "../model/shoppingcart.model";
+import {HttpService} from "./http.service";
 
 @Injectable({
   providedIn: 'root'
 })
 export class IcecreamService {
 
-  constructor() {
+  constructor(private httpService: HttpService) {
   }
 
   icecreamChanged = new Subject<Icecream[]>();
-
 
   async getIcecream(): Promise<Icecream[]> {
     try {

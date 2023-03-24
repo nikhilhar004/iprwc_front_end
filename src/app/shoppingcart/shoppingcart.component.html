@@ -1,20 +1,23 @@
 <div *ngIf="icecreamProducts.length > 0">
   <div class="container">
-    <div class="row" *ngFor="let product of icecreamProducts">
-      <div class="col">
-        {{product.name}}
-      </div>
-      <div class="col">
-        {{product.price}}
-      </div>
-      <div class="col">
-        <p>amount of {{product.name}}</p>
-      </div>
-      <div class="col">
-        icecreamcones: {{product.amount}}
-      </div>
-      <div class="col"><button (click)="removeCartItem(product)">Remove</button></div>
-    </div>
+    <table class="table">
+      <thead>
+        <tr>
+          <th scope="col">Productname</th>
+          <th scope="col">Amount</th>
+          <th scope="col">Price</th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let product of icecreamProducts">
+          <th>{{product.name}}</th>
+          <td>{{product.amount}}x</td>
+          <td>{{product.price}}</td>
+          <td><button class="btn btn-danger" (click)="removeCartItem(product)">Remove</button></td>
+        </tr>
+      </tbody>
+    </table>
   </div>
   <div class="container">
     <div class="row">
