@@ -1,5 +1,5 @@
 <div *ngIf="icecreamProducts.length > 0">
-  <div class="container p-3">
+  <div class="container p-3 border-top border-start border-end">
     <table class="table">
       <thead>
         <tr>
@@ -12,17 +12,22 @@
       <tbody>
         <tr *ngFor="let product of icecreamProducts">
           <th>{{product.name}}</th>
-          <td>{{product.amount}}x</td>
-          <td>€ {{product.price}}</td>
+          <td>
+            <button class="btn btn-primary me-3" (click)="increaseAmount(product)">+</button>
+            {{product.amount}}x
+            <button class="btn btn-primary ms-3" (click)="decreaseAmount(product)">-</button>
+          </td>
+          <td>€ {{product.price * product.amount}}</td>
           <td><button class="btn btn-danger" (click)="removeCartItem(product)">Remove</button></td>
         </tr>
       </tbody>
     </table>
   </div>
-  <div class="container">
+  <div class="container border-start border-end border-bottom">
     <div class="row">
       <div class="col"><b>Total price:</b></div>
       <div class="col">€ {{completePrice}}</div>
+      <div class="col"><button class="btn btn-success mb-3" (click)="sendOrder()">Order</button></div>
     </div>
   </div>
 </div>
